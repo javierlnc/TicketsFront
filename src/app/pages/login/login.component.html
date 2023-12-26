@@ -1,7 +1,7 @@
 <div class="contaier">
     <div></div>
     <div>
-        <form [formGroup]="loginForm">
+        <form [formGroup]="loginForm" (onSubmit)="doSomething()">
             <div class="form-group">
               <label for="username">User</label>
               <input class="form-control" formControlName="username" id="username" >
