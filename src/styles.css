@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    /* Colors */
+    --light-violet:#B6C5F2;
+    --light-pink:#E5B6F2;
+    --light-green:#B6F2D0;
+    --light-yellow:#F2E3B6;
+    --light-gray:#d9d6d2;
+    --dark-gray:#595959;
+    --black:#0D0D0D;
+    --whitte:#F2F2F2;
+    /* Fonts Siza */
+
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+  }
+button { cursor: pointer; }

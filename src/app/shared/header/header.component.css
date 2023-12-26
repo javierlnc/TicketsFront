@@ -1,4 +1,4 @@
 header {
-    background-color: #B6C5F2;
+    background-color: var(--light-violet);
     background-position: center;
 }
