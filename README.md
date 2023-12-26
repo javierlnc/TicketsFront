@@ -25,3 +25,19 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## Link de interes
+https://fbellod.medium.com/como-integrar-el-framework-bootstrap-en-un-proyecto-angular-a5d53fa79e03
+https://therichpost.com/create-your-personal-portfolio-website-in-angular-16/
+https://github.com/JassaRich/AngularPortfolioWebsite/blob/main/css/require.css
+https://mdbootstrap.com/docs/standard/navigation/headers/
+https://www.youtube.com/watch?v=jkdLRbrJj9M
+## Colores
+/* Color Theme Swatches in Hex */
+.Web-developer's-portfolio-1-hex { color: #E5B6F2; }
+.Web-developer's-portfolio-2-hex { color: #B6C5F2; }
+.Web-developer's-portfolio-3-hex { color: #B6F2D0; }
+.Web-developer's-portfolio-4-hex { color: #F2E3B6; }
+.Web-developer's-portfolio-5-hex { color: #D9D6D2; }
+
