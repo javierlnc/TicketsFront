@@ -1,0 +1,10 @@
+.custom {
+    padding: 10px;
+    height: 100%;
+}
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
