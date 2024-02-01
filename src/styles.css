@@ -29,3 +29,8 @@ html {
 button {
   cursor: pointer;
 }
+
+.ng-invalid:not(form).ng-touched {
+  border: 1px solid #a94442;
+  /* red */
+}

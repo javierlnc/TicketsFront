@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -7,17 +8,25 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent  implements OnInit{
-  loginForm!: FormGroup; 
-  constructor(private fb: FormBuilder) {}
+export class LoginComponent implements OnInit {
+  loginForm = this.fb.group({
+    username: ['', [Validators.required]],
+    password: ['', [Validators.required]]
+  })
+  constructor(private fb: FormBuilder, private router: Router) { }
 
-  ngOnInit() {
-    this.loginForm = this.fb.group({
-      username: new FormControl('',Validators.required),
-      password: new FormControl('',Validators.required)
-    })
+  ngOnInit(): void { }
+  doSomething() {
+    if (this.loginForm.valid) {
+      this.router.navigateByUrl('/inicio');
+    } else {
+      this.loginForm.markAllAsTouched();
+    }
   }
-  doSomething(){
-    console.log(this.loginForm)
+  get username() {
+    return this.loginForm.controls.username;
+  }
+  get password() {
+    return this.loginForm.controls.password;
   }
 }
