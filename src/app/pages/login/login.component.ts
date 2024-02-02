@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/auth/login.service';
+import { LoginRequest } from 'src/app/services/auth/loginRequest';
 
 
 @Component({
@@ -13,11 +15,12 @@ export class LoginComponent implements OnInit {
     username: ['', [Validators.required]],
     password: ['', [Validators.required]]
   })
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService) { }
 
   ngOnInit(): void { }
   doSomething() {
     if (this.loginForm.valid) {
+      this.loginService.login(this.loginForm.value as LoginRequest);
       this.router.navigateByUrl('/inicio');
     } else {
       this.loginForm.markAllAsTouched();
