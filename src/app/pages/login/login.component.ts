@@ -11,6 +11,7 @@ import { LoginRequest } from 'src/app/services/auth/loginRequest';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginError: string = "";
   loginForm = this.fb.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]]
@@ -20,8 +21,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
   doSomething() {
     if (this.loginForm.valid) {
-      this.loginService.login(this.loginForm.value as LoginRequest);
-      this.router.navigateByUrl('/inicio');
+      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+        next: (user) => { console.log(user) },
+        error: (error) => {
+          console.log(error)
+          this.loginError = error;
+        },
+        complete: () => {
+          console.log("login")
+          this.router.navigateByUrl('/inicio');
+        }
+      });
     } else {
       this.loginForm.markAllAsTouched();
     }

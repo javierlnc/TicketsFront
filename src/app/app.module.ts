@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 import { InicioComponent } from './pages/inicio/inicio.component';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { InicioComponent } from './pages/inicio/inicio.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-        ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
