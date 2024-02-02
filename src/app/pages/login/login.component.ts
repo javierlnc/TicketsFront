@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { LoginService } from 'src/app/services/auth/login.service';
-import { LoginRequest } from 'src/app/services/auth/loginRequest';
 
 
 @Component({
@@ -10,36 +7,17 @@ import { LoginRequest } from 'src/app/services/auth/loginRequest';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  loginError: string = "";
-  loginForm = this.fb.group({
-    username: ['', [Validators.required]],
-    password: ['', [Validators.required]]
-  })
-  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService) { }
+export class LoginComponent  implements OnInit{
+  loginForm!: FormGroup; 
+  constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void { }
-  doSomething() {
-    if (this.loginForm.valid) {
-      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
-        next: (user) => { console.log(user) },
-        error: (error) => {
-          console.log(error)
-          this.loginError = error;
-        },
-        complete: () => {
-          console.log("login")
-          this.router.navigateByUrl('/inicio');
-        }
-      });
-    } else {
-      this.loginForm.markAllAsTouched();
-    }
+  ngOnInit() {
+    this.loginForm = this.fb.group({
+      username: new FormControl('',Validators.required),
+      password: new FormControl('',Validators.required)
+    })
   }
-  get username() {
-    return this.loginForm.controls.username;
-  }
-  get password() {
-    return this.loginForm.controls.password;
+  doSomething(){
+    console.log(this.loginForm)
   }
 }
